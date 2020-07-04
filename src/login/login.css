@@ -1,0 +1,31 @@
+.login{
+    width: 400px;
+    margin: 20px auto;
+  }
+  
+  .login__form {
+    border-radius: 5px;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+    padding: 5px;
+  }
+  
+  .login__form__credentials {
+    text-align: center;
+  }
+  
+  .login__form__credentials input{
+    display: block;
+    width: 90%;
+    margin: 5px auto;
+  }
+  
+  .login__form__controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .login__form__remember label {
+    font-size: 0.9em;
+    margin-left: 5px;
+  }

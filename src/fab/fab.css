@@ -1,0 +1,28 @@
+.fab-container {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 5px;
+	border-top: 1px solid #ccc;
+}
+
+.fab {
+	display: flex;
+	width: 30px;
+	height: 30px;
+	justify-content: center;
+	align-items: center;
+	background-color: #5399FF;
+	border: solid 1px #0049B2;
+	border-radius: 50%;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+  
+.fab:hover {
+	box-shadow: 1px 1px 1px 1px #0049B2;
+	border: solid 1px #0049CC;
+}
+
+.fab-link {
+	text-decoration: none;
+}
