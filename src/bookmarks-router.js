@@ -39,7 +39,8 @@ bookmarksRouter
         
             res
                 .status(201)
-                .location(`http://localhost:8000/bookmarks/${id}`)
+                //.location(`http://localhost:8000/bookmarks/${id}`)
+                .location(`/bookmarks/${id}`)
                 .json(bookmark);
         
     });
@@ -48,17 +49,17 @@ bookmarksRouter
     .route('/bookmarks/:id')
     .get((req, res) => {
         const { id } = req.params;
-        const card = cards.find(c => c.id == id);
+        const bookmark = bookmarks.find(c => c.id == id);
       
         // make sure we found a card
-        if (!card) {
+        if (!bookmark) {
             logger.error(`Card with id ${id} not found.`);
             return res
                 .status(404)
-                .send('Card Not Found');
+                .send('404 Card Not Found');
         }
       
-        res.json(card);
+        res.json(bookmark);
     })
     .delete((req, res) => {
         const { id } = req.params;
