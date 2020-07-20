@@ -1,14 +1,14 @@
 {
-  "name": "07-09-2020-bice-booknmarks-api-heroku-deployment",
+  "name": "07-16-2020-bice-bookmarks-api-refactor",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require test/setup.js",
+    "test": "mocha --require test/setup.js --watch",
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "predeploy": "npm audit",
-    "deploy": "git push heroku master"
+    "migrate": "postgrator --config postgrator-config.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -18,14 +18,17 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.23.3",
+    "knex": "^0.21.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
+    "pg": "^8.3.0",
     "uuid": "^8.2.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.0.1",
+    "postgrator-cli": "^3.2.0",
     "supertest": "^4.0.2"
   }
 }
