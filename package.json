@@ -1,5 +1,5 @@
 {
-  "name": "07-16-2020-bice-bookmarks-api-refactor",
+  "name": "bookmarks-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,10 +8,13 @@
     "dev": "nodemon src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:test": "env NODE_ENV=test npm run migrate",
-    "start": "node src/server.js"
+    "migrate:production": "env SSL=false DATABASE_URL=$(heroku config:get DATABASE_URL) npm run migrate",
+    "start": "node src/server.js",
+    "predeploy": "npm audit && npm run migrate:production",
+    "deploy": "git push heroku master"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bice <certifiedbice@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -21,9 +24,10 @@
     "knex": "^0.21.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
-    "pg": "^8.3.0",
+    "pg": "^7.12.0",
     "uuid": "^8.2.0",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "xss": "^1.0.7"
   },
   "devDependencies": {
     "chai": "^4.2.0",
