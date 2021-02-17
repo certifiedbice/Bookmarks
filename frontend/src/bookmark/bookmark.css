@@ -12,3 +12,7 @@
     text-align: left;
     font-size: 0.95em;
   }
+
+  .BookmarkItem__buttons{
+    display:inline-block;
+  }
